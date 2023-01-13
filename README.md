@@ -32,10 +32,10 @@ $ yarn add react-router-dom
 # Instalação da biblioteca react-router-dom para criação de rotas.
 ```
 
-<!-- ```bash
-$ yarn add yup
-# Instalação da biblioteca yup para validações.
-``` -->
+```bash
+$ yarn add @types/styled-components
+# Instalação de tipagem do styled-components.
+```
 
 <!-- ```bash
 $ yarn add @hookform/resolvers
