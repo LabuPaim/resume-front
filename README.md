@@ -37,10 +37,10 @@ $ yarn add @types/styled-components
 # Instalação de tipagem do styled-components.
 ```
 
-<!-- ```bash
-$ yarn add @hookform/resolvers
-# Instalação da tipagem do react-hook-form yup.
-``` -->
+```bash
+$ yarn add axios
+# Instalação de framework para conexão com a api
+```
 
 ## Instalação
 
