@@ -1,6 +1,7 @@
 
 import { useEffect } from 'react'
 import { Routes, Route} from 'react-router-dom'
+import { Login } from '../pages/login'
 import { useDrawerContext } from '../shared/contexts'
 
 export const AppRoutes = () => {
@@ -24,7 +25,7 @@ export const AppRoutes = () => {
     }, [])
     return (
         <Routes>
-            {/* <Route path="/" element={<DashBoards/>} /> */}
+            <Route path="/" element={<Login/>} />
         </Routes>
     )
 }

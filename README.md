@@ -42,6 +42,11 @@ $ yarn add axios
 # Instalação de framework para conexão com a api
 ```
 
+```bash
+$ yarn add react-icons
+# Instalação de biblioteca de icones do react
+```
+
 ## Instalação
 
 ```bash
