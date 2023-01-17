@@ -31,7 +31,7 @@ export function LoginForm() {
       setError(true);
       return;
     }
-    navigate("/classroom");
+    navigate("/home");
   }
 
   return (

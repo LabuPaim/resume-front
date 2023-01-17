@@ -60,7 +60,7 @@ export const StyledForm = styled.form<StyledFormProps>`
     button {
       display: flex;
       align-items: center;
-      border: ${(props) => (props.error ? "solid 2px red" : "none")};\
+      border: ${(props) => (props.error ? "solid 2px red" : "none")};
       border-left: none;
       padding: 0 5px;
       margin: 0;
