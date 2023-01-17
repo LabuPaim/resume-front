@@ -1,7 +1,7 @@
 import axios from "axios";
 import { LoginRequest } from "../types/requests";
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://the-new-resume-production.up.railway.app";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 axios.interceptors.request.use(

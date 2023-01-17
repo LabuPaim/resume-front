@@ -5,7 +5,6 @@ import { StyledLoginPage } from "./styles";
 export function Login() {
   return (
     <StyledLoginPage>
-      <h1>teste</h1>
       <LoginForm />
     </StyledLoginPage>
   );
