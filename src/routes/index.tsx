@@ -1,6 +1,7 @@
 
 import { useEffect } from 'react'
 import { Routes, Route} from 'react-router-dom'
+import { Home } from '../pages/home'
 import { Login } from '../pages/login'
 import { useDrawerContext } from '../shared/contexts'
 
@@ -12,12 +13,12 @@ export const AppRoutes = () => {
         setDrawerOptions([
             {
                 icon: 'home',
-                path: '/home',
+                path: '/',
                 label: 'Página Inicial',
             },
             {
                 icon: 'perm_contact_calendar',
-                path: '/',
+                path: '/login',
                 label: 'Login',
             }
         ])
@@ -25,7 +26,8 @@ export const AppRoutes = () => {
     }, [])
     return (
         <Routes>
-            <Route path="/" element={<Login/>} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/" element={<Home/>} />
         </Routes>
     )
 }
