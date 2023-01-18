@@ -21,7 +21,7 @@ const colors = {
   lightPrimary: "#D9D9D9",
   lightSecondary: "#8C8C8C",
   middle: "#595959",
-  darkPrimary: "#0D0D0D",
+  darkPrimary: "#141318",
   darkSecondary: "#404040",
 };
 
