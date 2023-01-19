@@ -1,5 +1,5 @@
 
-import { LoginForm } from "../../shared/components/molecules/login-form";
+import { LoginForm } from "../../shared/components/login/login-form";
 import { StyledLoginPage } from "./styles";
 
 export function Login() {

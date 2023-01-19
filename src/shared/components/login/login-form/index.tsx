@@ -40,9 +40,13 @@ export function LoginForm() {
         <Loading />
       ) : (
         <StyledLoginForm>
-          <h2>Login</h2>
           <StyledForm onSubmit={handleSubmit} error={error}>
-            <input placeholder="Seu email" name="email" required />
+            <input
+              id={"inputEmail"}
+              placeholder="Seu email"
+              name="email"
+              required
+            />
             <div>
               <input
                 placeholder="Sua senha"
@@ -58,7 +62,10 @@ export function LoginForm() {
                 )}
               </button>
             </div>
-            <button type="submit">Login</button>
+            <h3>Esqueci minha senha</h3>
+            <button id={"login"} type="submit">
+              Login
+            </button>
           </StyledForm>
         </StyledLoginForm>
       )}
