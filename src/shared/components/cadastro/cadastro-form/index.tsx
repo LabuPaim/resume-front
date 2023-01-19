@@ -45,8 +45,10 @@ export function CadastroForm() {
     const loginPayload = {
       email: e.currentTarget.email.value,
       password: e.currentTarget.password.value,
+      role: activeCandidato ? "candidato" : "empresa",
     };
-    const userData = await api.login(loginPayload);
+    
+    const userData = await api.cadastrar(loginPayload);
     setLoading(false);
     console.log(userData);
     if (!userData) {
@@ -102,7 +104,6 @@ export function CadastroForm() {
                 <input
                   placeholder="Confirme sua senha"
                   type={showPassword ? "text" : "password"}
-                  name="password"
                   required
                 />
                 <button type="button" onClick={handleShowPassword}>

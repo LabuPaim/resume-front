@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LoginRequest } from "../types/requests";
+import { CadastroRequest, LoginRequest } from "../types/requests";
 
 axios.defaults.baseURL = "https://the-new-resume-production.up.railway.app";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -36,6 +36,19 @@ export const api = {
       const response = await axios.post("/Authorization/login", {
         email,
         password,
+      });
+      localStorage.setItem("token", response.data.token);
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+  cadastrar: async ({ email, password, role }: CadastroRequest) => {
+    try {
+      const response = await axios.post("/users", {
+        email,
+        password,
+        role
       });
       localStorage.setItem("token", response.data.token);
       return response.data;
