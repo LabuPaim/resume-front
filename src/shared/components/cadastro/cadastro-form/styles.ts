@@ -25,6 +25,7 @@ export const StyledRole = styled.div`
     cursor: pointer;
     font-size: 16px;
     height: 50%;
+    width: 6em;
     color: #595959;
     border-bottom: 3px solid transparent;
   }

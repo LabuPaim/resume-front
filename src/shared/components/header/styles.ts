@@ -45,6 +45,7 @@ export const ButtonMiddle = styled(Div)`
   button {
     border: 1px solid transparent;
     color: #a3a3a3;
+    width: 10em;
     border-radius: 0px;
     height: 100%;
     transition: 0.2s;
