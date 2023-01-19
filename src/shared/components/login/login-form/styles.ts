@@ -46,7 +46,6 @@ export const StyledForm = styled.form<StyledFormProps>`
     width: 100%;
     height: 50px;
     border-radius: 5px;
-    border: ${(props) => (props.error ? "solid 2px red" : "none")};
     background: ${(props) => props.theme.darkTheme.bg};
 
     input {
@@ -58,6 +57,7 @@ export const StyledForm = styled.form<StyledFormProps>`
       border-radius: 5px;
       font-size: 1.2rem;
       border: none;
+      border: ${(props) => (props.error ? "solid 2px red" : "none")};
       background: ${(props) => props.theme.darkTheme.bg};
       color: #ffff;
       :focus {
@@ -69,7 +69,6 @@ export const StyledForm = styled.form<StyledFormProps>`
       display: flex;
       align-items: center;
       height: 90%;
-      border: ${(props) => (props.error ? "solid 2px red" : "none")};
       border: none;
       padding: 0 15px;
       margin: 0 4px 0 0;
@@ -77,10 +76,10 @@ export const StyledForm = styled.form<StyledFormProps>`
       border-radius: 0 5px 5px 0;
       background: ${(props) => props.theme.darkTheme.bg};
       color: #8257e5;
-      z-index: 1000;
+      z-index: 1;
     }
     :focus {
-      border: 1px solid #8257e5;
+      border: 2px solid #8257e5;
     }
   }
 
