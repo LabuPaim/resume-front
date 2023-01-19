@@ -22,18 +22,23 @@ export const Button = styled.button`
 `;
 
 export const StyledHeader = styled(Div)`
-  justify-content: space-between;
+  justify-content: space-evenly;
   background: #121214;
   width: 100%;
   height: 80px;
-  padding: 0px 10%;
-  gap: 1em;
   border-bottom: 1px solid #a3a3a3;
+`;
+
+export const StyleLogo = styled(Div)`
+  display: flex;
+  justify-content: center;
+  width: 17em;
+  height: 100%;
 `;
 
 export const ButtonMiddle = styled(Div)`
   background: #121214;
-  width: 100%;
+  width: 20em;
   height: 100%;
   gap: 0.8em;
 
@@ -43,21 +48,32 @@ export const ButtonMiddle = styled(Div)`
     border-radius: 0px;
     height: 100%;
     transition: 0.2s;
-    
 
     :hover {
       background: #121214;
       color: #ffffff;
-      border-bottom: 4px solid #8257E5;
+      border-bottom: 4px solid #8257e5;
     }
   }
 `;
+
 export const ButtonContext = styled(Div)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #121214;
-  width: 20em;
-  gap: 2em;
+  width: 17em;
+  height: 100%;
+  gap: 1em;
 
   #entrar {
+    width: 8em;
+    height: 65%;
     border: 1px solid transparent;
+  }
+
+  #cadastro {
+    width: 8em;
+    height: 65%;
   }
 `;

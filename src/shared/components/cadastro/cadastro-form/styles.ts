@@ -11,6 +11,29 @@ export const StyledLoginForm = styled.div`
   max-width: 400px;
   height: 600px;
 `;
+export const StyledRole = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  height: 80px;
+
+  h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    height: 50%;
+    color: #595959;
+    border-bottom: 3px solid transparent;
+  }
+
+  .active {
+    color: #ffff;
+    border-bottom: 3px solid #8257e5;
+  }
+`;
 
 export type StyledFormProps = {
   error: boolean;
@@ -22,7 +45,7 @@ export const StyledForm = styled.form<StyledFormProps>`
   align-items: flex-start;
   justify-content: center;
   width: 80%;
-  gap: 8px;
+  gap: 12px;
 
   #inputEmail {
     width: 100%;

@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     html, #root, body {
         display: flex;
         flex-direction: column;
+        align-items: center;
         width: 100%;
         height: var(--vh, 100vh);
         background-color: ${(props) => props.theme.darkTheme.bg};

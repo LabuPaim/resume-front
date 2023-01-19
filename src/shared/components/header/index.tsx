@@ -1,5 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { Button, ButtonContext, ButtonMiddle, StyledHeader } from "./styles";
+import {
+  Button,
+  ButtonContext,
+  ButtonMiddle,
+  StyledHeader,
+  StyleLogo,
+} from "./styles";
 
 export function Header() {
   const navigate = useNavigate();
@@ -10,15 +16,19 @@ export function Header() {
 
   return (
     <StyledHeader>
-      Logo
+      <StyleLogo>Logo</StyleLogo>
       <ButtonMiddle>
         <Button onClick={() => navGo("/")}>Inicio</Button>
         <Button onClick={() => navGo("/")}>Vagas</Button>
         <Button onClick={() => navGo("/")}>Empresa</Button>
       </ButtonMiddle>
       <ButtonContext>
-        <Button id={"entrar"}onClick={() => navGo("/login")}>Entrar</Button>
-        <Button onClick={() => navGo("/create")}>Criar conta</Button>
+        <Button id={"entrar"} onClick={() => navGo("/login")}>
+          Entrar
+        </Button>
+        <Button id={"cadastro"} onClick={() => navGo("/cadastro")}>
+          Criar conta
+        </Button>
       </ButtonContext>
     </StyledHeader>
   );
