@@ -3,7 +3,7 @@ import { StyledForm, StyledLoginForm } from "./styles";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { Loading } from "../loading";
-import { api } from "../../../../services/api";
+import { api } from "../../../services/api";
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState<boolean>(false);

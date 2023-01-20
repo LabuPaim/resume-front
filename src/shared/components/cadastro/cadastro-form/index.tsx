@@ -3,7 +3,7 @@ import { StyledForm, StyledLoginForm, StyledRole } from "./styles";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { Loading } from "../loading";
-import { api } from "../../../../services/api";
+import { api } from "../../../services/api";
 
 export function CadastroForm() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -50,7 +50,6 @@ export function CadastroForm() {
     
     const userData = await api.cadastrar(loginPayload);
     setLoading(false);
-    console.log(userData);
     if (!userData) {
       setError(true);
       return;
