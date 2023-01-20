@@ -43,6 +43,7 @@ export const api = {
       alert(err);
     }
   },
+
   cadastrar: async ({ email, password, role }: CadastroRequest) => {
     try {
       const response = await axios.post("/users", {
@@ -50,7 +51,6 @@ export const api = {
         password,
         role
       });
-      localStorage.setItem("token", response.data.token);
       return response.data;
     } catch (err) {
       alert(err);

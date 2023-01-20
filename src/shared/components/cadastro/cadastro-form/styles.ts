@@ -4,12 +4,21 @@ export const StyledLoginForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: #202024;
   border-radius: 8px;
   width: 80%;
   max-width: 400px;
   height: 600px;
+
+  h2{
+    display: flex;
+    align-items: center;
+    height: 20%;
+    width: 100%;
+    padding: 0 0 0 40px
+    
+  }
 `;
 export const StyledRole = styled.div`
   display: flex;

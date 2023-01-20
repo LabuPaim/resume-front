@@ -77,6 +77,7 @@ export function CadastroForm() {
             </h2>
           </StyledRole>
           <StyledLoginForm>
+          <h2>Crie sua conta</h2>
             <StyledForm onSubmit={handleSubmit} error={error}>
               <input
                 id={"inputEmail"}
