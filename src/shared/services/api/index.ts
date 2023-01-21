@@ -40,7 +40,7 @@ export const api = {
       localStorage.setItem("token", response.data.token);
       return response.data;
     } catch (err) {
-      alert(err);
+      alert("E-mail ou senha inválida");
     }
   },
 
