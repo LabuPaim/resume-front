@@ -16,7 +16,7 @@ export type Vagas = {
   nivel: string;
   descricao: string;
   formacao: string;
-  habilidades: string;
+  habilidades: string[];
   experiencia: string;
   contratos: string;
   office: string;
