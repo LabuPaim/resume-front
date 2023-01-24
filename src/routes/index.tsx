@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Cadastro } from "../pages/cadastro";
 import { Home } from "../pages/home";
 import { Login } from "../pages/login";
+import { Vagas } from "../pages/vagas";
 import { useDrawerContext } from "../shared/contexts";
 
 export const AppRoutes = () => {
@@ -25,12 +26,18 @@ export const AppRoutes = () => {
         path: "/cadastro",
         label: "Cadastro",
       },
+      {
+        icon: "perm_contact_calendar",
+        path: "/vagas",
+        label: "Vagas",
+      },
     ]);
   }, []);
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
+      <Route path="/vagas" element={<Vagas />} />
       <Route path="/" element={<Home />} />
     </Routes>
   );

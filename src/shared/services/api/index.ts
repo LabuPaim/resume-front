@@ -49,10 +49,33 @@ export const api = {
       const response = await axios.post("/users", {
         email,
         password,
-        role
+        role,
       });
       return response.data;
     } catch (err) {
+      alert(err);
+    }
+  },
+  // cadastrarVagas: async ({ email, password, role }: CadastroRequest) => {
+  //   try {
+  //     const response = await axios.post("/vagas", {
+  //       email,
+  //       password,
+  //       role,
+  //     });
+  //     return response.data;
+  //   } catch (err) {
+  //     alert(err);
+  //   }
+  // },
+
+  getVagas: async () => {
+    try {
+      const response = await axios.get("/vagas");
+      
+      return response.data;
+    } catch (err) {
+      console.log(err);
       alert(err);
     }
   },

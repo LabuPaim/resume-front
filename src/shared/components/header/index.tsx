@@ -19,7 +19,7 @@ export function Header() {
       <StyleLogo>Logo</StyleLogo>
       <ButtonMiddle>
         <Button onClick={() => navGo("/")}>Inicio</Button>
-        <Button onClick={() => navGo("/")}>Vagas</Button>
+        <Button onClick={() => navGo("/vagas")}>Vagas</Button>
         <Button onClick={() => navGo("/")}>Empresa</Button>
       </ButtonMiddle>
       <ButtonContext>
