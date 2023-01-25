@@ -26,6 +26,7 @@ export const StyledHeader = styled(Div)`
   background: #121214;
   width: 100%;
   height: 80px;
+  min-height: 80px;
   border-bottom: 1px solid #a3a3a3;
 `;
 
