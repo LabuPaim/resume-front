@@ -20,7 +20,7 @@ export function Header() {
       <ButtonMiddle>
         <Button onClick={() => navGo("/")}>Inicio</Button>
         <Button onClick={() => navGo("/vagas")}>Vagas</Button>
-        <Button onClick={() => navGo("/")}>Empresa</Button>
+        <Button onClick={() => navGo("/criarvagas")}>Criar Vagas</Button>
       </ButtonMiddle>
       <ButtonContext>
         <Button id={"entrar"} onClick={() => navGo("/login")}>
