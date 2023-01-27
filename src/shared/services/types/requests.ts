@@ -15,8 +15,6 @@ export type UserRequest = {
 };
 
 export type Vagas = {
-  id: string;
-  userId: string;
   stack: string;
   nivel: string;
   descricao: string;

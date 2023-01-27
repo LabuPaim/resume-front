@@ -13,16 +13,24 @@ export function CriarVagasForm() {
     e.preventDefault();
 
     const loginPayload = {
-      email: e.currentTarget.email.value,
-      password: e.currentTarget.password.value,
+      stack: e.currentTarget.stack.value,
+      nivel: e.currentTarget.nivel.value,
+      descricao: e.currentTarget.descricao.value,
+      formacao: e.currentTarget.formacao.value,
+      habilidades: e.currentTarget.habilidades.value,
+      experiencia: e.currentTarget.experiencia.value,
+      contratos: e.currentTarget.contratos.value,
+      office: e.currentTarget.office.value,
+      deficiencia: e.currentTarget.deficiencia.value,
     };
+    console.log(loginPayload);
 
-    // const userData = await api.cadastrar(loginPayload);
-    // if (!userData) {
-    //   setError(true);
-    //   return;
-    // }
-    navigate("/home");
+    const userData = await api.cadastrarVaga(loginPayload);
+    if (!userData) {
+      setError(true);
+      return;
+    }
+    navigate("/vagas");
   }
 
   return (

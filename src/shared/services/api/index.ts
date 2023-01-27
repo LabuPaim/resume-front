@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CadastroRequest, LoginRequest } from "../types/requests";
+import { CadastroRequest, LoginRequest, Vagas } from "../types/requests";
 
 axios.defaults.baseURL = "https://the-new-resume-production.up.railway.app";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -50,6 +50,35 @@ export const api = {
         email,
         password,
         role,
+      });
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+
+  cadastrarVaga: async ({
+    stack,
+    nivel,
+    descricao,
+    formacao,
+    habilidades,
+    experiencia,
+    contratos,
+    office,
+    deficiencia,
+  }: Vagas) => {
+    try {
+      const response = await axios.post("/vagas", {
+        stack,
+        nivel,
+        descricao,
+        formacao,
+        habilidades,
+        experiencia,
+        contratos,
+        office,
+        deficiencia,
       });
       return response.data;
     } catch (err) {
