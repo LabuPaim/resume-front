@@ -7,9 +7,9 @@ const Div = styled.div`
 `;
 
 export const Cards = styled(Div)`
-  padding: 8px;
+  flex-direction: column;
+  padding: 40px;
+  gap: 40px;
 `;
 
-export const Input = styled.input`
-  padding: 8px;
-`;
+

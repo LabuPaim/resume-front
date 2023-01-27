@@ -4,6 +4,7 @@ import { Vagas } from "../../services/types/requests";
 import {
   Card,
   Habilidades,
+  Input,
   MapCard,
   Principal,
   Secundario,
@@ -13,6 +14,17 @@ import {
 
 export function CardVagas() {
   const [getVagas, setVagas] = useState<Vagas[]>([]);
+  const [busca, setBusca] = useState("");
+
+  const vagasFilter = getVagas?.filter(
+    (doc) =>
+      doc.stack.toLowerCase().includes(busca.toLowerCase()) ||
+      doc.office.includes(busca) ||
+      doc.nivel.toLowerCase().includes(busca.toLowerCase()) ||
+      doc.contratos.toLowerCase().includes(busca.toLowerCase()) ||
+      doc.descricao.toLowerCase().includes(busca.toLowerCase())
+  );
+  console.log(vagasFilter);
 
   async function findVagas() {
     const data = await api.getVagas();
@@ -24,7 +36,13 @@ export function CardVagas() {
   }, []);
   return (
     <Card>
-      {getVagas?.map((vaga) => {
+      <Input
+        type="text"
+        placeholder="Buscar vaga"
+        value={busca}
+        onChange={(event) => setBusca(event.target.value)}
+      />
+      {vagasFilter?.map((vaga) => {
         return (
           <MapCard>
             <Principal>
@@ -38,7 +56,8 @@ export function CardVagas() {
                 </h1>
                 <h3>
                   {`${
-                    vaga.descricao.charAt(0) + vaga.descricao.slice(1).toLowerCase()
+                    vaga.descricao.charAt(0) +
+                    vaga.descricao.slice(1).toLowerCase()
                   }`}
                 </h3>
               </Stackoffice>

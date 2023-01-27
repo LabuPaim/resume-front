@@ -11,6 +11,10 @@ export const Card = styled(Div)`
   gap: 2em;
 `;
 
+export const Input = styled.input`
+  padding: 8px;
+`;
+
 export const MapCard = styled.button`
   display: flex;
   flex-direction: column;
