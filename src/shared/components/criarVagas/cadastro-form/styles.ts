@@ -1,57 +1,32 @@
 import styled from "styled-components";
 
-export const StyledLoginForm = styled.div`
+const Div = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+`;
+
+export const StyledLoginForm = styled(Div)`
+  flex-direction: column;
   background: #202024;
   border-radius: 8px;
   width: 80%;
   max-width: 400px;
-  height: 600px;
+  padding: 1.5em;
+  height: 100%;
 
-  h2 {
-    display: flex;
-    align-items: center;
-    height: 20%;
-    width: 100%;
-    padding: 0 0 0 40px;
+  h1 {
+    font-size: 30px;
+    padding: 0.5em;
   }
 `;
-export const StyledRole = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2em;
-  height: 80px;
 
-  h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 16px;
-    height: 50%;
-    width: 6em;
-    color: #595959;
-    border-bottom: 3px solid transparent;
-  }
-
-  .active {
-    color: #ffff;
-    border-bottom: 3px solid #8257e5;
-  }
-`;
-export const Radio = styled.div`
-  display: flex;
-  align-items: center;
+export const Radio = styled(Div)`
   justify-content: space-between;
   padding: 20px;
   width: 100%;
   height: 50px;
   border-radius: 5px;
-  background: ${(props) => props.theme.darkTheme.bg};
 
   div {
     display: flex;
@@ -67,6 +42,21 @@ export const Radio = styled.div`
     label {
       cursor: pointer;
     }
+  }
+`;
+export const Contrato = styled(Radio)`
+  justify-content: center;
+  gap: 3em;
+`;
+
+export const Caixa = styled(Div)`
+  flex-direction: column;
+  width: 100%;
+
+  h2 {
+    margin-top: 1em;
+    font-size: 25px;
+    padding: 0.2em;
   }
 `;
 
