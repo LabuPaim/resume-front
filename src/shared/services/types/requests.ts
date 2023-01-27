@@ -8,6 +8,11 @@ export type CadastroRequest = {
   password: string;
   role: string;
 };
+export type UserRequest = {
+  email: string;
+  role: string;
+  token: string;
+};
 
 export type Vagas = {
   id: string;

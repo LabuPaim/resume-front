@@ -56,23 +56,22 @@ export const api = {
       alert(err);
     }
   },
-  // cadastrarVagas: async ({ email, password, role }: CadastroRequest) => {
-  //   try {
-  //     const response = await axios.post("/vagas", {
-  //       email,
-  //       password,
-  //       role,
-  //     });
-  //     return response.data;
-  //   } catch (err) {
-  //     alert(err);
-  //   }
-  // },
+
+  getUser: async () => {
+    try {
+      const response = await axios.get("/users");
+
+      return response.data;
+    } catch (err) {
+      console.log(err);
+      alert(err);
+    }
+  },
 
   getVagas: async () => {
     try {
       const response = await axios.get("/vagas");
-      
+
       return response.data;
     } catch (err) {
       console.log(err);
