@@ -5,11 +5,11 @@ const Div = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 export const Cards = styled(Div)`
   padding: 8px;
-  
 `;
 
-
-
-
+export const Input = styled.input`
+  padding: 8px;
+`;
