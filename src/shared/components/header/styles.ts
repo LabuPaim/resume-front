@@ -39,7 +39,7 @@ export const StyleLogo = styled(Div)`
 
 export const ButtonMiddle = styled(Div)`
   background: #121214;
-  width: 20em;
+  width: 25em;
   height: 100%;
   gap: 0.8em;
 
