@@ -13,6 +13,24 @@ export const Card = styled(Div)`
 
 export const Input = styled.input`
   padding: 8px;
+  width: 60%;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  ::placeholder {
+      color: #121214;
+      opacity: 1;
+    }
+
+  :focus {
+    ::placeholder {
+      color: #8257e5;
+      opacity: 1;
+    }
+    background: #21143d;
+    border: 2px solid #8257e5;
+  }
 `;
 
 export const MapCard = styled.button`
@@ -22,10 +40,16 @@ export const MapCard = styled.button`
   border: none;
   align-items: flex-start;
   gap: 20px;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 10px;
   padding: 15px;
+  width: 100%;
   color: #fff;
+  cursor: pointer;
+
+  :hover{
+    border: 2px solid #8257e5;
+  }
 `;
 
 export const Principal = styled(Div)`
