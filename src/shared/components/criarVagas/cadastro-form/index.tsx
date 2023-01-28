@@ -32,7 +32,6 @@ export function CriarVagasForm() {
       contratos: e.currentTarget.contrato.value,
       habilidades: arrayAbility,
     };
-    console.log(loginPayload);
 
     const userData = await api.cadastrarVaga(loginPayload);
     if (!userData) {

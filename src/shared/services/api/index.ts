@@ -68,6 +68,7 @@ export const api = {
     office,
     deficiencia,
   }: Vagas) => {
+    
     try {
       const response = await axios.post("/vagas", {
         stack,
@@ -80,6 +81,8 @@ export const api = {
         office,
         deficiencia,
       });
+      console.log("response.data")
+      console.log(habilidades)
       return response.data;
     } catch (err) {
       alert(err);
