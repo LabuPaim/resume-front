@@ -18,9 +18,9 @@ export type Vagas = {
   stack: string;
   nivel: string;
   descricao: string;
-  formacao: string;
+  formacao: string[];
   habilidades: string[];
-  experiencia: string;
+  experiencia: string[];
   contratos: string;
   office: string;
   deficiencia: string;

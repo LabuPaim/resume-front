@@ -8,20 +8,29 @@ export function CriarVagasForm() {
   const [error, setError] = useState<boolean>(false);
 
   const navigate = useNavigate();
+  console.log("estou aqui sim");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const ability = e.currentTarget.habilidades;
+    const arrayAbility = [];
+
+    for (let i = 0; i < 3; i++) {
+      if (ability[i].checked === true) {
+        arrayAbility.push(ability[i].value);
+      }
+    }
 
     const loginPayload = {
       stack: e.currentTarget.stack.value,
       nivel: e.currentTarget.nivel.value,
       descricao: e.currentTarget.descricao.value,
-      formacao: e.currentTarget.formacao.value,
-      habilidades: e.currentTarget.habilidades.value,
-      experiencia: e.currentTarget.experiencia.value,
-      contratos: e.currentTarget.contratos.value,
+      formacao: [e.currentTarget.formacao.value],
+      experiencia: [e.currentTarget.experiencia.value],
       office: e.currentTarget.office.value,
       deficiencia: e.currentTarget.deficiencia.value,
+      contratos: e.currentTarget.contrato.value,
+      habilidades: arrayAbility,
     };
     console.log(loginPayload);
 
@@ -51,7 +60,7 @@ export function CriarVagasForm() {
                 value="FRONTEND"
                 type={"radio"}
               />
-              <label for="frontend">Front-End</label>
+              <label>Front-End</label>
             </div>
             <div>
               <input
@@ -60,7 +69,7 @@ export function CriarVagasForm() {
                 value="BACKEND"
                 type={"radio"}
               />
-              <label for="backend">Back-End</label>
+              <label>Back-End</label>
             </div>
             <div>
               <input
@@ -68,9 +77,9 @@ export function CriarVagasForm() {
                 id={"fullstack"}
                 value="FULLSTACK"
                 type={"radio"}
-                checked
+                defaultChecked
               />
-              <label for="fullstack">Full Stack</label>
+              <label>Full Stack</label>
             </div>
           </Radio>
 
@@ -83,17 +92,17 @@ export function CriarVagasForm() {
                 id={"junior"}
                 value="JUNIOR"
                 type={"radio"}
-                checked
+                defaultChecked
               />
-              <label for="junior">Júnior</label>
+              <label>Júnior</label>
             </div>
             <div>
               <input name="nivel" id={"pleno"} value="PLENO" type={"radio"} />
-              <label for="pleno">Pleno</label>
+              <label>Pleno</label>
             </div>
             <div>
               <input name="nivel" id={"senhor"} value="SENHOR" type={"radio"} />
-              <label for="senhor">Senhor</label>
+              <label>Senhor</label>
             </div>
           </Radio>
 
@@ -106,13 +115,13 @@ export function CriarVagasForm() {
                 id={"clt"}
                 value="CLT"
                 type={"radio"}
-                checked
+                defaultChecked
               />
-              <label for="clt">CLT</label>
+              <label>CLT</label>
             </div>
             <div>
               <input name="contrato" id={"pj"} value="PJ" type={"radio"} />
-              <label for="pj">PJ</label>
+              <label>PJ</label>
             </div>
           </Contrato>
 
@@ -125,9 +134,9 @@ export function CriarVagasForm() {
                 id={"homeoffice"}
                 value="HOMEOFFICE"
                 type={"radio"}
-                checked
+                defaultChecked
               />
-              <label for="homeoffice">Home Office</label>
+              <label>Home Office</label>
             </div>
             <div>
               <input
@@ -136,7 +145,7 @@ export function CriarVagasForm() {
                 value="PRESENCIAL"
                 type={"radio"}
               />
-              <label for="presencial">Presencial</label>
+              <label>Presencial</label>
             </div>
             <div>
               <input
@@ -145,7 +154,7 @@ export function CriarVagasForm() {
                 value="HIBRIDO"
                 type={"radio"}
               />
-              <label for="hibrido">Híbrido</label>
+              <label>Híbrido</label>
             </div>
           </Radio>
 
@@ -154,7 +163,7 @@ export function CriarVagasForm() {
           <Contrato>
             <div>
               <input name="deficiencia" id={"sim"} value="SIM" type={"radio"} />
-              <label for="sim">Sim</label>
+              <label>Sim</label>
             </div>
             <div>
               <input
@@ -162,9 +171,9 @@ export function CriarVagasForm() {
                 id={"nao"}
                 value="NAO"
                 type={"radio"}
-                checked
+                defaultChecked
               />
-              <label for="nao">Não</label>
+              <label>Não</label>
             </div>
           </Contrato>
 
@@ -178,7 +187,7 @@ export function CriarVagasForm() {
                 value="API"
                 type={"checkbox"}
               />
-              <label for="api">API</label>
+              <label>API</label>
             </div>
             <div>
               <input
@@ -187,7 +196,7 @@ export function CriarVagasForm() {
                 value="CSS"
                 type={"checkbox"}
               />
-              <label for="css">CSS</label>
+              <label>CSS</label>
             </div>
             <div>
               <input
@@ -196,7 +205,7 @@ export function CriarVagasForm() {
                 value="TYPESCRIPT"
                 type={"checkbox"}
               />
-              <label for="typescript">TypeScript</label>
+              <label>TypeScript</label>
             </div>
           </Radio>
         </Caixa>
