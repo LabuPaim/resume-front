@@ -24,7 +24,6 @@ export function CardVagas() {
       doc.contratos.toLowerCase().includes(busca.toLowerCase()) ||
       doc.descricao.toLowerCase().includes(busca.toLowerCase())
   );
-  console.log(vagasFilter);
 
   async function findVagas() {
     const data = await api.getVagas();

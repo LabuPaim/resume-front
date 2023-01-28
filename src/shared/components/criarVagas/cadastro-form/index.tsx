@@ -8,7 +8,6 @@ export function CriarVagasForm() {
   const [error, setError] = useState<boolean>(false);
 
   const navigate = useNavigate();
-  console.log("estou aqui sim");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();

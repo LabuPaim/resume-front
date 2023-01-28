@@ -81,8 +81,6 @@ export const api = {
         office,
         deficiencia,
       });
-      console.log("response.data")
-      console.log(habilidades)
       return response.data;
     } catch (err) {
       alert(err);
