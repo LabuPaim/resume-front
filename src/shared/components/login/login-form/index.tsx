@@ -1,14 +1,17 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useContext } from "react";
 import { StyledForm, StyledLoginForm } from "./styles";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { Loading } from "../loading";
-import { api } from "../../../services/api";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { LoginRequest } from "../../../services/types/requests";
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
+
+  const { user, setUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -20,14 +23,14 @@ export function LoginForm() {
     e.preventDefault();
     setLoading(true);
 
-    const loginPayload = {
+    setUser({
       email: e.currentTarget.email.value,
       password: e.currentTarget.password.value,
-    };
-    const userData = await api.login(loginPayload);
+    });
+    // const userData = await api.login(loginPayload);
     setLoading(false);
-    
-    if (!userData) {
+
+    if (!user) {
       setError(true);
       return;
     }
