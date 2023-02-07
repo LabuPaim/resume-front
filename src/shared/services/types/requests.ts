@@ -3,6 +3,11 @@ export type LoginRequest = {
   password: string;
 };
 
+export type ContextLogin = {
+  user: LoginRequest
+  login(credencial: LoginRequest): Promise<void>;
+};
+
 export type CadastroRequest = {
   email: string;
   password: string;
