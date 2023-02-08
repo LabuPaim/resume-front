@@ -10,7 +10,7 @@ export function LoginForm() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
-  const { user, login } = useContext(AuthContext);
+  const { userRequest, login } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -27,12 +27,14 @@ export function LoginForm() {
       password: e.currentTarget.password.value,
     });
     setLoading(false);
+    console.log(userRequest);
 
-    if (!user) {
+    if (!userRequest) {
       setError(true);
       return;
+    } else {
+      navigate("/vagas");
     }
-    navigate("/vagas");
   }
 
   return (

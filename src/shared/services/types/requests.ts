@@ -4,7 +4,7 @@ export type LoginRequest = {
 };
 
 export type ContextLogin = {
-  user: LoginRequest
+  userRequest: UserRequest
   login(credencial: LoginRequest): Promise<void>;
 };
 
@@ -13,11 +13,20 @@ export type CadastroRequest = {
   password: string;
   role: string;
 };
+
 export type UserRequest = {
+  token: string;
+  user: User;
+};
+
+export type User ={
+  id: string;
   email: string;
   role: string;
-  token: string;
-};
+  empresa: string[];
+  candidato: string[];
+  vaga: string[];
+}
 
 export type Vagas = {
   stack: string;
