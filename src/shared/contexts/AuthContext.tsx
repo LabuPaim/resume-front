@@ -18,15 +18,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const userData: UserRequest = await api.login(credencial);
 
     setUserRequest(userData);
+    return userData;
   }
-
-  // async function logon(credencial: UserRequest | undefined) {
-  //   if (credencial) {
-  //     setUserRequest(teste);
-  //   }
-  // }
-
-  useEffect(() => {}, [login]);
 
   return (
     <AuthContext.Provider value={{ userRequest, login } as ContextLogin}>

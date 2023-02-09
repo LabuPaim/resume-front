@@ -5,7 +5,7 @@ export type LoginRequest = {
 
 export type ContextLogin = {
   userRequest: UserRequest
-  login(credencial: LoginRequest): Promise<void>;
+  login(credencial: LoginRequest): Promise<UserRequest>;
 };
 
 export type CadastroRequest = {

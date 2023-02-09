@@ -1,4 +1,4 @@
-import { FormEvent, useState, useContext } from "react";
+import { FormEvent, useState, useContext, useEffect } from "react";
 import { StyledForm, StyledLoginForm } from "./styles";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,7 @@ export function LoginForm() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
-  const { userRequest, login } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -22,16 +22,14 @@ export function LoginForm() {
     e.preventDefault();
     setLoading(true);
 
-    await login({
+    const teste = await login({
       email: e.currentTarget.email.value,
       password: e.currentTarget.password.value,
     });
     setLoading(false);
-    console.log(userRequest);
 
-    if (!userRequest) {
+    if (!teste) {
       setError(true);
-      return;
     } else {
       navigate("/vagas");
     }
