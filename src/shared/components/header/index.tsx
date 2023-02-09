@@ -6,13 +6,20 @@ import {
   StyledHeader,
   StyleLogo,
 } from "./styles";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export function Header() {
   const navigate = useNavigate();
 
+  const { userRequest, login } = useContext(AuthContext);
+
   function navGo(event: string): void {
     navigate(event);
   }
+
+  useEffect(() => {
+  }, [login]);
 
   return (
     <StyledHeader>
@@ -20,7 +27,9 @@ export function Header() {
       <ButtonMiddle>
         <Button onClick={() => navGo("/")}>Inicio</Button>
         <Button onClick={() => navGo("/vagas")}>Vagas</Button>
-        <Button onClick={() => navGo("/criarvagas")}>Criar Vagas</Button>
+        {userRequest?.user.role == "candidato" ? null : (
+          <Button onClick={() => navGo("/criarvagas")}>Criar Vagas</Button>
+        )}
       </ButtonMiddle>
       <ButtonContext>
         <Button id={"entrar"} onClick={() => navGo("/login")}>

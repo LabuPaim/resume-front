@@ -1,11 +1,10 @@
-import { useEffect } from "react";
+
 import { Routes, Route } from "react-router-dom";
 import { Cadastro } from "../pages/cadastro";
 import { CriarVagas } from "../pages/criarVagas";
 import { Home } from "../pages/home";
 import { Login } from "../pages/login";
 import { Vagas } from "../pages/vagas";
-import { useDrawerContext } from "../shared/contexts";
 
 export const AppRoutes = () => {
   return (
