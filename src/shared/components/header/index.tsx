@@ -8,6 +8,7 @@ import {
 } from "./styles";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import { CgProfile } from "react-icons/cg";
 
 export function Header() {
   const navigate = useNavigate();
@@ -18,8 +19,7 @@ export function Header() {
     navigate(event);
   }
 
-  useEffect(() => {
-  }, [login]);
+  useEffect(() => {}, [login]);
 
   return (
     <StyledHeader>
@@ -31,14 +31,22 @@ export function Header() {
           <Button onClick={() => navGo("/criarvagas")}>Criar Vagas</Button>
         )}
       </ButtonMiddle>
-      <ButtonContext>
-        <Button id={"entrar"} onClick={() => navGo("/login")}>
-          Entrar
-        </Button>
-        <Button id={"cadastro"} onClick={() => navGo("/cadastro")}>
-          Criar conta
-        </Button>
-      </ButtonContext>
+      {userRequest ? (
+        <ButtonContext>
+          <Button className={"perfil"} onClick={() => navGo("/login")}>
+            <CgProfile id={"icon"} />
+          </Button>
+        </ButtonContext>
+      ) : (
+        <ButtonContext>
+          <Button id={"entrar"} onClick={() => navGo("/login")}>
+            Entrar
+          </Button>
+          <Button id={"cadastro"} onClick={() => navGo("/cadastro")}>
+            Criar conta
+          </Button>
+        </ButtonContext>
+      )}
     </StyledHeader>
   );
 }

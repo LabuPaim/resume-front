@@ -78,4 +78,16 @@ export const ButtonContext = styled(Div)`
     width: 8em;
     height: 65%;
   }
+  .perfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 8em; */
+    height: 85%;
+    border: 1px solid transparent;
+    font-size: 2.5em;
+    /* #icon {
+      margin: 0 15px 0 0;
+    } */
+  }
 `;
