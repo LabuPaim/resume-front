@@ -19,7 +19,7 @@ export function CardVagas() {
   const vagasFilter = getVagas?.filter(
     (doc) =>
       doc.stack.toLowerCase().includes(busca.toLowerCase()) ||
-      doc.office.includes(busca) ||
+      doc.office.toLowerCase().includes(busca.toLowerCase()) ||
       doc.nivel.toLowerCase().includes(busca.toLowerCase()) ||
       doc.contratos.toLowerCase().includes(busca.toLowerCase()) ||
       doc.descricao.toLowerCase().includes(busca.toLowerCase())
