@@ -27,7 +27,7 @@ export function Header() {
       <ButtonMiddle>
         <Button onClick={() => navGo("/")}>Inicio</Button>
         <Button onClick={() => navGo("/vagas")}>Vagas</Button>
-        {userRequest?.user.role == "candidato" ? null : (
+        {userRequest?.user.role !== "empresa" ? null : (
           <Button onClick={() => navGo("/criarvagas")}>Criar Vagas</Button>
         )}
       </ButtonMiddle>
