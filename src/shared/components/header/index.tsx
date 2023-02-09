@@ -33,7 +33,7 @@ export function Header() {
       </ButtonMiddle>
       {userRequest ? (
         <ButtonContext>
-          <Button className={"perfil"} onClick={() => navGo("/login")}>
+          <Button className={"perfil"} onClick={() => navGo("/criarperfil")}>
             <CgProfile id={"icon"} />
           </Button>
         </ButtonContext>
