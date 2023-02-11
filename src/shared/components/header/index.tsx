@@ -12,11 +12,16 @@ import { CgProfile } from "react-icons/cg";
 
 export function Header() {
   const navigate = useNavigate();
-
   const { userRequest, login } = useContext(AuthContext);
 
   function navGo(event: string): void {
     navigate(event);
+  }
+
+  function clearLocal(event: string): void {
+    localStorage.clear();
+    navigate(event);
+    window.location.reload();
   }
 
   useEffect(() => {}, [login]);
@@ -36,8 +41,8 @@ export function Header() {
           <div>
             <CgProfile className={"icons"} />
             <ul>
-              <li>Pefil</li>
-              <li>Sair</li>
+              <li onClick={() => navGo("/criarperfil")}>Pefil</li>
+              <li onClick={() => clearLocal("/")}>Sair</li>
             </ul>
           </div>
 

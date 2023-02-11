@@ -93,32 +93,56 @@ export const ButtonContext = styled(Div)<StyledUserRequest>`
         width: 3em;
         height: 3em;
         gap: 0em;
-        cursor: pointer;
-        border: 2px solid red;
 
         .icons {
           display: block;
           position: absolute;
           font-size: 3em;
+          cursor: pointer;
+          color: #a3a3a3;
+          z-index: 1000;
+          :hover {
+            color: #ffffff;
+          }
         }
 
         ul {
-          font-size: 1.5em;
-          list-style: none;
-          margin: 0em 0em 0em 4.5em;
-          /* border: 1px solid #8257e5; */
           display: none;
+          justify-content: flex-end;
+          flex-direction: column;
+          background: #141318;
+          height: 100%;
+          padding: 1em;
+          font-size: 1.5em;
+          gap: 0.5em;
+          list-style: none;
+          margin: 1.5em 0em 0em 6em;
+          z-index: 100;
+          border-radius: 4px;
+
+          li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3em;
+            
+            cursor: pointer;
+            color: #a3a3a3;
+            border-radius: 3px;
+            :hover {
+              color: #ffffff;
+              background: #8257e5;
+            }
+          }
         }
 
         :hover {
           width: 8em;
           height: 8em;
           ul {
-            display: block;
+            display: flex;
+            position: relative;
           }
-          /* .icons {
-            display: none;
-          } */
         }
       }
     `}
