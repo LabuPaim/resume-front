@@ -22,8 +22,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }
 
   useEffect(() => {
+
+    console.log("Nem chegou lá viu pai");
     const user = JSON.parse(localStorage.getItem("user") ?? "");
-    console.log(user);
+    console.log("to aqui pai",user);
     const token = localStorage.getItem("token")
     if (user && token) setUserRequest({ token, user });
   }, []);
