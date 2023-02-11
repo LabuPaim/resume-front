@@ -116,6 +116,38 @@ export const api = {
     }
   },
 
+  UpDatePerfilEmpresa: async ({
+    nome,
+    cnpj,
+    telefone,
+    cidade,
+    estado,
+    descricao,
+  }: Empresa) => {
+    try {
+      const response = await axios.patch("/empresa", {
+        nome,
+        cnpj,
+        telefone,
+        cidade,
+        estado,
+        descricao,
+      });
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+
+  getEmpresa: async (id: string) => {
+    try {
+      const response = await axios.get("/empresa/:"+ id);
+      return response.data;
+    } catch (err) {
+      console.log(err);
+      alert(err);
+    }
+  },
   getUser: async () => {
     try {
       const response = await axios.get("/users");

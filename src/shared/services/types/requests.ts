@@ -23,7 +23,7 @@ export type User = {
   id: string;
   email: string;
   role: string;
-  empresa: string[];
+  empresa: IEmpresaEntity[];
   candidato: string[];
   vaga: string[];
 };
@@ -48,3 +48,8 @@ export type Empresa = {
   estado: string;
   descricao: string;
 };
+
+export interface IEmpresaEntity extends Empresa {
+  id: string;
+  userId: string;
+}

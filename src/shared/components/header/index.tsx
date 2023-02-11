@@ -45,10 +45,6 @@ export function Header() {
               <li onClick={() => clearLocal("/")}>Sair</li>
             </ul>
           </div>
-
-          {/* <Button className={"perfil"} onClick={() => navGo("/criarperfil")}>
-            <CgProfile id={"icon"} />
-          </Button> */}
         </ButtonContext>
       ) : (
         <ButtonContext userRequest={false}>

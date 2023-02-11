@@ -60,11 +60,9 @@ export const Caixa = styled(Div)`
   }
 `;
 
-export type StyledFormProps = {
-  error: boolean;
-};
 
-export const StyledForm = styled.form<StyledFormProps>`
+
+export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
