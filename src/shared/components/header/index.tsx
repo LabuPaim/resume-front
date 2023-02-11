@@ -32,19 +32,21 @@ export function Header() {
         )}
       </ButtonMiddle>
       {userRequest ? (
-        <ButtonContext>
-          <ul className={"menu"}>
-            <li>Pefil</li>
-            <li>Sair</li>
-          </ul>
-          <CgProfile className={"icons"} />
+        <ButtonContext userRequest={true}>
+          <div>
+            <CgProfile className={"icons"} />
+            <ul>
+              <li>Pefil</li>
+              <li>Sair</li>
+            </ul>
+          </div>
 
           {/* <Button className={"perfil"} onClick={() => navGo("/criarperfil")}>
             <CgProfile id={"icon"} />
           </Button> */}
         </ButtonContext>
       ) : (
-        <ButtonContext>
+        <ButtonContext userRequest={false}>
           <Button id={"entrar"} onClick={() => navGo("/login")}>
             Entrar
           </Button>

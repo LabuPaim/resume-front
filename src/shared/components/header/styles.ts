@@ -1,4 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+export type StyledUserRequest = {
+  userRequest: boolean;
+};
 
 const Div = styled.div`
   display: flex;
@@ -59,7 +63,7 @@ export const ButtonMiddle = styled(Div)`
   }
 `;
 
-export const ButtonContext = styled(Div)`
+export const ButtonContext = styled(Div)<StyledUserRequest>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,7 +71,6 @@ export const ButtonContext = styled(Div)`
   width: 17em;
   height: 100%;
   gap: 1em;
-  border: 2px solid red;
 
   #entrar {
     width: 8em;
@@ -79,59 +82,44 @@ export const ButtonContext = styled(Div)`
     width: 8em;
     height: 65%;
   }
-  .perfil {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 85%;
-    border: 1px solid transparent;
-    font-size: 2.5em;
-    :hover {
-      color: #121214;
-    }
-  }
 
-  :hover ul {
-    display: block;
-  }
+  ${(props) =>
+    props.userRequest &&
+    css`
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 3em;
+        height: 3em;
+        gap: 0em;
+        cursor: pointer;
+        border: 2px solid red;
 
-  :hover .icons {
-    display: none;
-  }
+        .icons {
+          display: block;
+          position: absolute;
+          font-size: 3em;
+        }
 
-  .icons {
-    font-size: 2.5em;
-  }
+        ul {
+          font-size: 1.5em;
+          list-style: none;
+          margin: 0em 0em 0em 4.5em;
+          /* border: 1px solid #8257e5; */
+          display: none;
+        }
 
-  ul {
-    /* width: 100%;
-    height: 100%; */
-    /* z-index: 1000; */
-    /* cursor: pointer; */
-    list-style: none;
-    border: 1px solid #8257e5;
-    float: left;
-
-    /* position: absolute; */
-    display: none;
-
-    li {
-      position: relative;
-      /* float: left; */
-      /* border-right: 1px solid #c0c0c0; */
-      a {
-        color: #333;
-        text-decoration: none;
-        padding: 5px 10px;
-        display: block;
         :hover {
-          background: #333;
-          color: #fff;
-          -moz-box-shadow: 0 3px 10px 0 #ccc;
-          -webkit-box-shadow: 0 3px 10px 0 #ccc;
-          text-shadow: 0px 0px 5px #fff;
+          width: 8em;
+          height: 8em;
+          ul {
+            display: block;
+          }
+          /* .icons {
+            display: none;
+          } */
         }
       }
-    }
-  }
+    `}
 `;
