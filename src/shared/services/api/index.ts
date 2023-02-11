@@ -1,5 +1,10 @@
 import axios from "axios";
-import { CadastroRequest, LoginRequest, Vagas } from "../types/requests";
+import {
+  CadastroRequest,
+  Empresa,
+  LoginRequest,
+  Vagas,
+} from "../types/requests";
 
 axios.defaults.baseURL = "https://the-new-resume-production.up.railway.app";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -37,8 +42,9 @@ export const api = {
         email,
         password,
       });
-      
+
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
       return response.data;
     } catch (err) {
       alert("E-mail ou senha inválida");
@@ -80,6 +86,29 @@ export const api = {
         contratos,
         office,
         deficiencia,
+      });
+      return response.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
+
+  criarPerfilEmpresa: async ({
+    nome,
+    cnpj,
+    telefone,
+    cidade,
+    estado,
+    descricao,
+  }: Empresa) => {
+    try {
+      const response = await axios.post("/empresa", {
+        nome,
+        cnpj,
+        telefone,
+        cidade,
+        estado,
+        descricao,
       });
       return response.data;
     } catch (err) {

@@ -22,7 +22,7 @@ export function CardVagas() {
       doc.office.toLowerCase().includes(busca.toLowerCase()) ||
       doc.nivel.toLowerCase().includes(busca.toLowerCase()) ||
       doc.contratos.toLowerCase().includes(busca.toLowerCase()) ||
-      doc.descricao.toLowerCase().includes(busca.toLowerCase())
+      doc.descricao.toLowerCase().includes(busca.toLowerCase()) 
   );
 
   async function findVagas() {

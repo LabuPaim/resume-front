@@ -4,7 +4,7 @@ export type LoginRequest = {
 };
 
 export type ContextLogin = {
-  userRequest: UserRequest
+  userRequest: UserRequest;
   login(credencial: LoginRequest): Promise<UserRequest>;
 };
 
@@ -19,14 +19,14 @@ export type UserRequest = {
   user: User;
 };
 
-export type User ={
+export type User = {
   id: string;
   email: string;
   role: string;
   empresa: string[];
   candidato: string[];
   vaga: string[];
-}
+};
 
 export type Vagas = {
   stack: string;
@@ -38,6 +38,13 @@ export type Vagas = {
   contratos: string;
   office: string;
   deficiencia: string;
-  // user: string;
-  // empresa: string;
+};
+
+export type Empresa = {
+  nome: string;
+  cnpj: string;
+  telefone: string;
+  cidade: string;
+  estado: string;
+  descricao: string;
 };
