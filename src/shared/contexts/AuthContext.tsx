@@ -22,11 +22,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }
 
   useEffect(() => {
-    console.log(localStorage.getItem("user"));
-    const user = JSON.parse(localStorage.getItem("user") ?? "");
-    console.log("to aqui pai", user);
+    const user =
+      localStorage.getItem("user") &&
+      JSON.parse(localStorage.getItem("user") ?? "");
     const token = localStorage.getItem("token");
-    if (token) setUserRequest({ token, user });
+    if (user && token) setUserRequest({ token, user });
   }, []);
 
   return (
