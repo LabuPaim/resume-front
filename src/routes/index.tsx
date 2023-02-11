@@ -6,6 +6,7 @@ import { CriarVagas } from "../pages/criarVagas";
 import { Home } from "../pages/home";
 import { Login } from "../pages/login";
 import { Vagas } from "../pages/vagas";
+import { VagasCriadas } from "../pages/vagasCriadas";
 
 export const AppRoutes = () => {
   return (
@@ -16,6 +17,7 @@ export const AppRoutes = () => {
       <Route path="/vagas" element={<Vagas />} />
       <Route path="/criarvagas" element={<CriarVagas />} />
       <Route path="/criarperfil" element={<CriarPerfil />} />
+      <Route path="/vagascriadas" element={<VagasCriadas />} />
     </Routes>
   );
 };

@@ -106,36 +106,6 @@ export const ButtonContext = styled(Div)<StyledUserRequest>`
           }
         }
 
-        ul {
-          display: none;
-          justify-content: flex-end;
-          flex-direction: column;
-          background: #141318;
-          height: 100%;
-          padding: 1em;
-          font-size: 1.5em;
-          gap: 0.5em;
-          list-style: none;
-          margin: 1.5em 0em 0em 6em;
-          z-index: 100;
-          border-radius: 4px;
-
-          li {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 3em;
-            
-            cursor: pointer;
-            color: #a3a3a3;
-            border-radius: 3px;
-            :hover {
-              color: #ffffff;
-              background: #8257e5;
-            }
-          }
-        }
-
         :hover {
           width: 8em;
           height: 8em;
@@ -145,5 +115,46 @@ export const ButtonContext = styled(Div)<StyledUserRequest>`
           }
         }
       }
+    `}
+`;
+
+export type Empresa = {
+  empresa: string;
+};
+
+export const Ull = styled.ul<Empresa>`
+  display: none;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  background: #141318;
+  height: 100%;
+  padding: 1em;
+  font-size: 1.5em;
+  gap: 0.5em;
+  list-style: none;
+  margin: 1.5em 0em 0em 6em;
+  z-index: 100;
+  border-radius: 4px;
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+
+    cursor: pointer;
+    color: #a3a3a3;
+    border-radius: 3px;
+    :hover {
+      color: #ffffff;
+      background: #8257e5;
+    }
+  }
+
+  ${(props) =>
+    props.empresa === "empresa" &&
+    css`
+      margin: 4.5em 0em 0em 6em;
     `}
 `;

@@ -5,6 +5,7 @@ import {
   ButtonMiddle,
   StyledHeader,
   StyleLogo,
+  Ull,
 } from "./styles";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -32,7 +33,9 @@ export function Header() {
       <ButtonMiddle>
         <Button onClick={() => navGo("/")}>Inicio</Button>
         <Button onClick={() => navGo("/vagas")}>Vagas</Button>
-        {userRequest?.user.role !== "empresa" ? null : (
+        {userRequest?.user.role !== "empresa" ? (
+          <Button onClick={() => navGo("/criarvagas")}>Minhas Vagas</Button>
+        ) : (
           <Button onClick={() => navGo("/criarvagas")}>Criar Vagas</Button>
         )}
       </ButtonMiddle>
@@ -40,10 +43,13 @@ export function Header() {
         <ButtonContext userRequest={true}>
           <div>
             <CgProfile className={"icons"} />
-            <ul>
+            <Ull empresa={userRequest.user.role}>
               <li onClick={() => navGo("/criarperfil")}>Pefil</li>
+              {userRequest?.user.role == "empresa" && (
+                <li onClick={() => navGo("/vagascriadas")}>Vagas</li>
+              )}
               <li onClick={() => clearLocal("/")}>Sair</li>
-            </ul>
+            </Ull>
           </div>
         </ButtonContext>
       ) : (
