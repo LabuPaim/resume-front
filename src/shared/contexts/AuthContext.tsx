@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   useEffect(() => {
 
-    console.log("Nem chegou lá viu pai");
+    console.log(localStorage.getItem("user"));
     const user = JSON.parse(localStorage.getItem("user") ?? "");
     console.log("to aqui pai",user);
     const token = localStorage.getItem("token")
