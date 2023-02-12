@@ -25,7 +25,7 @@ export type User = {
   role: string;
   empresa: IEmpresaEntity[];
   candidato: string[];
-  vaga: string[];
+  vaga: Vagas[];
 };
 
 export type Vagas = {

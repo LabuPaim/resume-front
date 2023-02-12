@@ -33,9 +33,9 @@ export function Header() {
       <ButtonMiddle>
         <Button onClick={() => navGo("/")}>Inicio</Button>
         <Button onClick={() => navGo("/vagas")}>Vagas</Button>
-        {userRequest?.user.role !== "empresa" ? (
+        {userRequest?.user.role == "candidato" ? (
           <Button onClick={() => navGo("/criarvagas")}>Minhas Vagas</Button>
-        ) : (
+        ) : userRequest?.user.role == "empresa" &&(
           <Button onClick={() => navGo("/criarvagas")}>Criar Vagas</Button>
         )}
       </ButtonMiddle>

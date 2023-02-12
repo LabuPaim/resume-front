@@ -1,11 +1,12 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useContext } from "react";
 import { Caixa, Contrato, Radio, StyledForm, StyledLoginForm } from "./styles";
 import { useNavigate } from "react-router-dom";
-import { Loading } from "../loading";
 import { api } from "../../../services/api";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 export function CriarVagasForm() {
   const [error, setError] = useState<boolean>(false);
+  const { userRequest } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -32,12 +33,14 @@ export function CriarVagasForm() {
       habilidades: arrayAbility,
     };
 
+    userRequest.user.vaga.push(loginPayload);
+
     const userData = await api.cadastrarVaga(loginPayload);
     if (!userData) {
       setError(true);
       return;
     }
-    navigate("/vagas");
+    navigate("/vagascriadas");
   }
 
   return (

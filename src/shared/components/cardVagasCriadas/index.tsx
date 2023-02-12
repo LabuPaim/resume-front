@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 import { api } from "../../services/api";
 import { Vagas } from "../../services/types/requests";
 import {
@@ -13,35 +14,11 @@ import {
 } from "./styles";
 
 export function VagasCriadasList() {
-  const [getVagas, setVagas] = useState<Vagas[]>([]);
-  const [busca, setBusca] = useState("");
+  const { userRequest } = useContext(AuthContext);
 
-  const vagasFilter = getVagas?.filter(
-    (doc) =>
-      doc.stack.toLowerCase().includes(busca.toLowerCase()) ||
-      doc.office.toLowerCase().includes(busca.toLowerCase()) ||
-      doc.nivel.toLowerCase().includes(busca.toLowerCase()) ||
-      doc.contratos.toLowerCase().includes(busca.toLowerCase()) ||
-      doc.descricao.toLowerCase().includes(busca.toLowerCase()) 
-  );
-
-  async function findVagas() {
-    const data = await api.getVagas();
-    setVagas(data);
-  }
-
-  useEffect(() => {
-    findVagas();
-  }, []);
   return (
     <Card>
-      <Input
-        type="text"
-        placeholder="Buscar vaga"
-        value={busca}
-        onChange={(event) => setBusca(event.target.value)}
-      />
-      {vagasFilter?.map((vaga) => {
+      {userRequest.user.vaga?.map((vaga) => {
         return (
           <MapCard>
             <Principal>
