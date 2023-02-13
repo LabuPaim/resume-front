@@ -44,7 +44,7 @@ export const MapCard = styled.button`
   border: 2px solid #ccc;
   border-radius: 10px;
   padding: 15px;
-  width: 100%;
+  width: 90%;
   color: #fff;
   cursor: pointer;
 
@@ -58,9 +58,9 @@ export const Principal = styled(Div)`
 `;
 
 export const OverCard = styled(Div)`
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: flex-start;
-  width: 100%;
+  width: 40em;
   gap: 10px;
 `;
 
@@ -69,11 +69,13 @@ export type lixoBoolean = {
 };
 export const LixoBoolean = styled.button<lixoBoolean>`
   display: flex;
+  justify-content: center;
   background: none;
   border: none;
   color: #a3a3a3;
   font-size: 20px;
   left: 87.5em;
+  width: 8%;
 
   border-radius: 4px;
   padding: 10px;
