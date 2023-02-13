@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Div = styled.div`
   display: flex;
@@ -19,9 +19,9 @@ export const Input = styled.input`
   font-size: 1.2rem;
   border: none;
   ::placeholder {
-      color: #121214;
-      opacity: 1;
-    }
+    color: #121214;
+    opacity: 1;
+  }
 
   :focus {
     ::placeholder {
@@ -35,6 +35,7 @@ export const Input = styled.input`
 
 export const MapCard = styled.button`
   display: flex;
+  
   flex-direction: column;
   background: none;
   border: none;
@@ -47,7 +48,7 @@ export const MapCard = styled.button`
   color: #fff;
   cursor: pointer;
 
-  :hover{
+  :hover {
     border: 2px solid #8257e5;
   }
 `;
@@ -55,6 +56,36 @@ export const MapCard = styled.button`
 export const Principal = styled(Div)`
   gap: 50px;
 `;
+
+export const OverCard = styled(Div)`
+justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  gap: 10px;
+`;
+
+export type lixoBoolean = {
+  deleted: boolean;
+};
+export const LixoBoolean = styled(Div)<lixoBoolean>`
+  position: absolute;
+  left:920px;
+  
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  :hover {
+    background: #c92c2c;
+    color: #fff;
+  }
+  ${(props) =>
+    props.deleted
+      ? null
+      : css`
+          display: none;
+        `}
+`;
+
 export const Secundario = styled(Div)`
   gap: 20px;
   h3 {

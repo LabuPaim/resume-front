@@ -25,7 +25,7 @@ export type User = {
   role: string;
   empresa: IEmpresaEntity[];
   candidato: string[];
-  vaga: Vagas[];
+  vaga: IVagasEntity[];
 };
 
 export type Vagas = {
@@ -50,6 +50,10 @@ export type Empresa = {
 };
 
 export interface IEmpresaEntity extends Empresa {
+  id: string;
+  userId: string;
+}
+export interface IVagasEntity extends Vagas {
   id: string;
   userId: string;
 }

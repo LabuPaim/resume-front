@@ -1,5 +1,3 @@
-
-
 import { VagasCriadasList } from "../../shared/components/cardVagasCriadas";
 import { StyledLoginPage } from "./styles";
 
