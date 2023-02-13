@@ -13,13 +13,22 @@ import {
   OverCard,
   LixoBoolean,
 } from "./styles";
+import { DeleteVagasModal } from "../modal/deleteVagas";
 
 export function VagasCriadasList() {
-  const [onDelete, setOnDelete] = useState(false);
   const [onDeleteId, setOnDeleteId] = useState("");
+  const [onDelete, setOnDelete] = useState(false);
   const { userRequest } = useContext(AuthContext);
 
-  function deletedItens(id: string) {
+  const [isdelete, setIsdelete] = useState(false);
+  const [isOpen, setOpen] = useState(false);
+  const handleOpen = () => setOpen(!isOpen);
+
+  const deleteItem = () => {
+    setIsdelete(!isdelete);
+  };
+
+  function onLixoDeleted(id: string) {
     setOnDeleteId(id);
 
     setOnDelete(!onDelete);
@@ -30,7 +39,7 @@ export function VagasCriadasList() {
       {userRequest.user.vaga?.map((vaga) => {
         return (
           <OverCard>
-            <MapCard onClick={() => deletedItens(vaga.id)}>
+            <MapCard onClick={() => onLixoDeleted(vaga.id)}>
               <Principal>
                 <Stackoffice>
                   <h1>
@@ -73,11 +82,19 @@ export function VagasCriadasList() {
               </Secundario>
             </MapCard>
             {onDeleteId === vaga.id ? (
-              <LixoBoolean deleted={onDelete}>
+              <LixoBoolean deleted={onDelete} onClick={() => setOpen(true)}>
                 <BsTrash></BsTrash>
               </LixoBoolean>
             ) : (
               <LixoBoolean deleted={onDelete}></LixoBoolean>
+            )}
+            {isOpen && (
+              <DeleteVagasModal
+                open={isOpen}
+                requestClose={handleOpen}
+                isId={onDeleteId}
+                deleteItem={deleteItem}
+              />
             )}
           </OverCard>
         );

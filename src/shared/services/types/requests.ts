@@ -8,6 +8,14 @@ export type ContextLogin = {
   login(credencial: LoginRequest): Promise<UserRequest>;
 };
 
+export type StyledModal = {
+  isId: string;
+  open: boolean;
+  requestClose: () => void;
+  deleteItem: () => void;
+
+};
+
 export type CadastroRequest = {
   email: string;
   password: string;
