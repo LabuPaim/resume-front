@@ -141,8 +141,19 @@ export const api = {
 
   getEmpresa: async (id: string) => {
     try {
-      const response = await axios.get("/empresa/:"+ id);
+      const response = await axios.get("/empresa/" + id);
       return response.data;
+    } catch (err) {
+      console.log(err);
+      alert(err);
+    }
+  },
+
+  deleteVaga: async (id: string) => {
+    try {
+      console.log("response");
+      const response = await axios.delete("/vagas/" + id);
+      return response;
     } catch (err) {
       console.log(err);
       alert(err);
