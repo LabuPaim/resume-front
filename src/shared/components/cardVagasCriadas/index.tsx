@@ -72,10 +72,12 @@ export function VagasCriadasList() {
                 </h3>
               </Secundario>
             </MapCard>
-            {onDeleteId === vaga.id && (
+            {onDeleteId === vaga.id ? (
               <LixoBoolean deleted={onDelete}>
                 <BsTrash></BsTrash>
               </LixoBoolean>
+            ) : (
+              <LixoBoolean deleted={onDelete}></LixoBoolean>
             )}
           </OverCard>
         );

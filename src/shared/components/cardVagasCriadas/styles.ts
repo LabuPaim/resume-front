@@ -35,7 +35,7 @@ export const Input = styled.input`
 
 export const MapCard = styled.button`
   display: flex;
-  
+
   flex-direction: column;
   background: none;
   border: none;
@@ -58,7 +58,7 @@ export const Principal = styled(Div)`
 `;
 
 export const OverCard = styled(Div)`
-justify-content: flex-end;
+  justify-content: flex-end;
   align-items: flex-start;
   width: 100%;
   gap: 10px;
@@ -67,10 +67,14 @@ justify-content: flex-end;
 export type lixoBoolean = {
   deleted: boolean;
 };
-export const LixoBoolean = styled(Div)<lixoBoolean>`
-  position: absolute;
-  left:920px;
-  
+export const LixoBoolean = styled.button<lixoBoolean>`
+  display: flex;
+  background: none;
+  border: none;
+  color: #a3a3a3;
+  font-size: 20px;
+  left: 87.5em;
+
   border-radius: 4px;
   padding: 10px;
   cursor: pointer;
@@ -80,8 +84,7 @@ export const LixoBoolean = styled(Div)<lixoBoolean>`
   }
   ${(props) =>
     props.deleted
-      ? null
-      : css`
+      && css`
           display: none;
         `}
 `;
