@@ -13,8 +13,8 @@ export function CriarVagasForm() {
   let unquiVaga = {} as IVagasEntity;
 
   if (id) {
-    if (userRequest.user) {
-      for (const item of userRequest?.user.vaga) {
+    if (userRequest) {
+      for (const item of userRequest?.user?.vaga) {
         if (item.id === id) {
           unquiVaga = item;
           break;
@@ -36,7 +36,7 @@ export function CriarVagasForm() {
 
     const loginPayload: IVagasEntity = {
       id: "",
-      userId: userRequest.user.id,
+      userId: userRequest?.user?.id,
       stack: e.currentTarget.stack.value,
       nivel: e.currentTarget.nivel.value,
       descricao: e.currentTarget.descricao.value,
@@ -48,7 +48,7 @@ export function CriarVagasForm() {
       habilidades: arrayAbility,
     };
 
-    userRequest.user.vaga.push(loginPayload);
+    userRequest?.user?.vaga.push(loginPayload);
 
     const userData = await api.cadastrarVaga(loginPayload);
     if (!userData) {
@@ -63,7 +63,7 @@ export function CriarVagasForm() {
   // }
   return (
     <>
-      {!userRequest.user ? (
+      {!userRequest ? (
         <h2>Loading...</h2>
       ) : (
         <StyledLoginForm>
@@ -269,9 +269,7 @@ export function CriarVagasForm() {
                     id={"typescript"}
                     value="TYPESCRIPT"
                     type={"checkbox"}
-                    defaultChecked={unquiVaga?.habilidades?.includes(
-                      "TYPESCRIPT"
-                    )}
+                    defaultChecked={unquiVaga?.habilidades?.includes("TYPESCRIPT")}
                   />
                   <label>TypeScript</label>
                 </div>
