@@ -23,8 +23,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   useEffect(() => {
     const userData = localStorage.getItem("user");
+    console.log("vem null", userData);
 
-    if (userData) {
+    if (userData !== null) {
       const user = JSON.parse(userData);
 
       const token = localStorage.getItem("token");
