@@ -39,7 +39,7 @@ export function VagasCriadasList() {
 
   return (
     <Card>
-      {userRequest.user.vaga?.map((vaga) => {
+      {userRequest?.user?.vaga?.map((vaga) => {
         return (
           <OverCard>
             <MapCard onClick={() => onLixoDeleted(vaga.id)}>
