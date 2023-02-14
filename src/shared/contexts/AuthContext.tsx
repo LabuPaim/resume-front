@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }
 
   useEffect(() => {
-    if (localStorage) {
+    if (localStorage.getItem("user")) {
       const user =
         localStorage.getItem("user") &&
         JSON.parse(localStorage.getItem("user") ?? "");
