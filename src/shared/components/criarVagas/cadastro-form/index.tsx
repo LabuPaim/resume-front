@@ -129,7 +129,7 @@ export function CriarVagasForm() {
                     id={"junior"}
                     value="JUNIOR"
                     type={"radio"}
-                    defaultChecked
+                    defaultChecked={unquiVaga?.nivel === "JUNIOR"}
                   />
                   <label>Júnior</label>
                 </div>
@@ -139,6 +139,7 @@ export function CriarVagasForm() {
                     id={"pleno"}
                     value="PLENO"
                     type={"radio"}
+                    defaultChecked={unquiVaga?.nivel === "PLENO"}
                   />
                   <label>Pleno</label>
                 </div>
@@ -148,6 +149,7 @@ export function CriarVagasForm() {
                     id={"senhor"}
                     value="SENHOR"
                     type={"radio"}
+                    defaultChecked={unquiVaga?.nivel === "SENHOR"}
                   />
                   <label>Senhor</label>
                 </div>
@@ -162,12 +164,18 @@ export function CriarVagasForm() {
                     id={"clt"}
                     value="CLT"
                     type={"radio"}
-                    defaultChecked
+                    defaultChecked={unquiVaga?.nivel === "CLT"}
                   />
                   <label>CLT</label>
                 </div>
                 <div>
-                  <input name="contrato" id={"pj"} value="PJ" type={"radio"} />
+                  <input
+                    name="contrato"
+                    id={"pj"}
+                    value="PJ"
+                    type={"radio"}
+                    defaultChecked={unquiVaga?.nivel === "PJ"}
+                  />
                   <label>PJ</label>
                 </div>
               </Contrato>
@@ -181,7 +189,7 @@ export function CriarVagasForm() {
                     id={"homeoffice"}
                     value="HOMEOFFICE"
                     type={"radio"}
-                    defaultChecked
+                    defaultChecked={unquiVaga?.office === "HOMEOFFICE"}
                   />
                   <label>Home Office</label>
                 </div>
@@ -191,6 +199,7 @@ export function CriarVagasForm() {
                     id={"presencial"}
                     value="PRESENCIAL"
                     type={"radio"}
+                    defaultChecked={unquiVaga?.office === "PRESENCIAL"}
                   />
                   <label>Presencial</label>
                 </div>
@@ -200,6 +209,7 @@ export function CriarVagasForm() {
                     id={"hibrido"}
                     value="HIBRIDO"
                     type={"radio"}
+                    defaultChecked={unquiVaga?.office === "HIBRIDO"}
                   />
                   <label>Híbrido</label>
                 </div>
@@ -214,6 +224,7 @@ export function CriarVagasForm() {
                     id={"sim"}
                     value="SIM"
                     type={"radio"}
+                    defaultChecked={unquiVaga?.deficiencia === "SIM"}
                   />
                   <label>Sim</label>
                 </div>
@@ -223,7 +234,7 @@ export function CriarVagasForm() {
                     id={"nao"}
                     value="NAO"
                     type={"radio"}
-                    defaultChecked
+                    defaultChecked={unquiVaga?.deficiencia === "NAO"}
                   />
                   <label>Não</label>
                 </div>
@@ -248,6 +259,7 @@ export function CriarVagasForm() {
                     id={"css"}
                     value="CSS"
                     type={"checkbox"}
+                    defaultChecked={unquiVaga?.habilidades?.includes("CSS")}
                   />
                   <label>CSS</label>
                 </div>
@@ -257,6 +269,7 @@ export function CriarVagasForm() {
                     id={"typescript"}
                     value="TYPESCRIPT"
                     type={"checkbox"}
+                    defaultChecked={unquiVaga?.habilidades?.includes("TYPESCRIPT")}
                   />
                   <label>TypeScript</label>
                 </div>
