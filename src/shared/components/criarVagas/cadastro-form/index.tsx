@@ -13,7 +13,7 @@ export function CriarVagasForm() {
   let unquiVaga = {} as IVagasEntity;
 
   if (id) {
-    if (userRequest) {
+    if (userRequest.user) {
       for (const item of userRequest?.user.vaga) {
         if (item.id === id) {
           unquiVaga = item;
@@ -63,7 +63,7 @@ export function CriarVagasForm() {
   // }
   return (
     <>
-      {!userRequest ? (
+      {!userRequest.user ? (
         <h2>Loading...</h2>
       ) : (
         <StyledLoginForm>
@@ -269,7 +269,9 @@ export function CriarVagasForm() {
                     id={"typescript"}
                     value="TYPESCRIPT"
                     type={"checkbox"}
-                    defaultChecked={unquiVaga?.habilidades?.includes("TYPESCRIPT")}
+                    defaultChecked={unquiVaga?.habilidades?.includes(
+                      "TYPESCRIPT"
+                    )}
                   />
                   <label>TypeScript</label>
                 </div>
