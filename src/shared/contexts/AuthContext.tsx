@@ -23,12 +23,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   useEffect(() => {
     const userData = localStorage.getItem("user");
-    console.log("vem null", userData);
+    const token = localStorage.getItem("token");
 
-    if (userData !== null) {
+    if (userData === null || token === null) {
+    } else {
       const user = JSON.parse(userData);
-
-      const token = localStorage.getItem("token");
       if (user && token) setUserRequest({ token, user });
     }
   }, []);
