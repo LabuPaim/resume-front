@@ -20,7 +20,7 @@ import { DeleteVagasModal } from "../modal/deleteVagas";
 export function VagasCriadasList() {
   const { userRequest } = useContext(AuthContext);
   const [onDeleteId, setOnDeleteId] = useState("");
-  const [onDelete, setOnDelete] = useState(false);
+  const [onDelete, setOnDelete] = useState(true);
 
   const [isdelete, setIsdelete] = useState(false);
   const [isOpen, setOpen] = useState(false);
@@ -36,6 +36,10 @@ export function VagasCriadasList() {
   }
 
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   console.log(onDelete);
+  // }, [onDelete]);
 
   return (
     <Card>
