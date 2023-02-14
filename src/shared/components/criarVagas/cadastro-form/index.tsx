@@ -1,14 +1,27 @@
 import { FormEvent, useState, useContext } from "react";
 import { Caixa, Contrato, Radio, StyledForm, StyledLoginForm } from "./styles";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../../services/api";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { IVagasEntity, Vagas } from "../../../services/types/requests";
 
 export function CriarVagasForm() {
   const [error, setError] = useState<boolean>(false);
   const { userRequest } = useContext(AuthContext);
-
+  const { id } = useParams();
   const navigate = useNavigate();
+  let unquiVaga = {} as IVagasEntity;
+
+  if (id) {
+    if (userRequest) {
+      for (const item of userRequest?.user.vaga) {
+        if (item.id === id) {
+          unquiVaga = item;
+          break;
+        }
+      }
+    }
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -21,7 +34,9 @@ export function CriarVagasForm() {
       }
     }
 
-    const loginPayload = {
+    const loginPayload: IVagasEntity = {
+      id: "",
+      userId: userRequest.user.id,
       stack: e.currentTarget.stack.value,
       nivel: e.currentTarget.nivel.value,
       descricao: e.currentTarget.descricao.value,
@@ -43,178 +58,217 @@ export function CriarVagasForm() {
     navigate("/vagascriadas");
   }
 
+  // if (!userRequest) {
+  //   return <h2>Loading...</h2>;
+  // }
   return (
-    <StyledLoginForm>
-      <h1>Abrir Vaga</h1>
-      <StyledForm onSubmit={handleSubmit} error={error}>
-        <textarea placeholder="Descrição..." name="descricao" />
-        <textarea placeholder="Formação..." name="formacao" />
-        <textarea placeholder="Experiência..." name="experiencia" />
-        <Caixa>
-          <h2>Stack</h2>
+    <>
+      {!userRequest ? (
+        <h2>Loading...</h2>
+      ) : (
+        <StyledLoginForm>
+          <h1>Abrir Vaga</h1>
+          <StyledForm onSubmit={handleSubmit} error={error}>
+            <textarea
+              placeholder="Descrição..."
+              name="descricao"
+              defaultValue={unquiVaga?.descricao}
+            />
+            <textarea
+              placeholder="Formação..."
+              name="formacao"
+              defaultValue={unquiVaga?.formacao}
+            />
+            <textarea
+              placeholder="Experiência..."
+              name="experiencia"
+              defaultValue={unquiVaga?.experiencia}
+            />
+            <Caixa>
+              <h2>Stack</h2>
 
-          <Radio>
-            <div>
-              <input
-                name="stack"
-                id={"frontend"}
-                value="FRONTEND"
-                type={"radio"}
-              />
-              <label>Front-End</label>
-            </div>
-            <div>
-              <input
-                name="stack"
-                id={"backend"}
-                value="BACKEND"
-                type={"radio"}
-              />
-              <label>Back-End</label>
-            </div>
-            <div>
-              <input
-                name="stack"
-                id={"fullstack"}
-                value="FULLSTACK"
-                type={"radio"}
-                defaultChecked
-              />
-              <label>Full Stack</label>
-            </div>
-          </Radio>
+              <Radio>
+                <div>
+                  <input
+                    name="stack"
+                    id={"frontend"}
+                    value="FRONTEND"
+                    type={"radio"}
+                    defaultChecked={unquiVaga?.stack === "FRONTEND"}
+                  />
+                  <label>Front-End</label>
+                </div>
+                <div>
+                  <input
+                    name="stack"
+                    id={"backend"}
+                    value="BACKEND"
+                    type={"radio"}
+                    defaultChecked={unquiVaga?.stack === "BACKEND"}
+                  />
+                  <label>Back-End</label>
+                </div>
+                <div>
+                  <input
+                    name="stack"
+                    id={"fullstack"}
+                    value="FULLSTACK"
+                    type={"radio"}
+                    defaultChecked={unquiVaga?.stack === "FULLSTACK"}
+                  />
+                  <label>Full Stack</label>
+                </div>
+              </Radio>
 
-          <h2>Nivel</h2>
+              <h2>Nivel</h2>
 
-          <Radio>
-            <div>
-              <input
-                name="nivel"
-                id={"junior"}
-                value="JUNIOR"
-                type={"radio"}
-                defaultChecked
-              />
-              <label>Júnior</label>
-            </div>
-            <div>
-              <input name="nivel" id={"pleno"} value="PLENO" type={"radio"} />
-              <label>Pleno</label>
-            </div>
-            <div>
-              <input name="nivel" id={"senhor"} value="SENHOR" type={"radio"} />
-              <label>Senhor</label>
-            </div>
-          </Radio>
+              <Radio>
+                <div>
+                  <input
+                    name="nivel"
+                    id={"junior"}
+                    value="JUNIOR"
+                    type={"radio"}
+                    defaultChecked
+                  />
+                  <label>Júnior</label>
+                </div>
+                <div>
+                  <input
+                    name="nivel"
+                    id={"pleno"}
+                    value="PLENO"
+                    type={"radio"}
+                  />
+                  <label>Pleno</label>
+                </div>
+                <div>
+                  <input
+                    name="nivel"
+                    id={"senhor"}
+                    value="SENHOR"
+                    type={"radio"}
+                  />
+                  <label>Senhor</label>
+                </div>
+              </Radio>
 
-          <h2>Tipo de Contrato</h2>
+              <h2>Tipo de Contrato</h2>
 
-          <Contrato>
-            <div>
-              <input
-                name="contrato"
-                id={"clt"}
-                value="CLT"
-                type={"radio"}
-                defaultChecked
-              />
-              <label>CLT</label>
-            </div>
-            <div>
-              <input name="contrato" id={"pj"} value="PJ" type={"radio"} />
-              <label>PJ</label>
-            </div>
-          </Contrato>
+              <Contrato>
+                <div>
+                  <input
+                    name="contrato"
+                    id={"clt"}
+                    value="CLT"
+                    type={"radio"}
+                    defaultChecked
+                  />
+                  <label>CLT</label>
+                </div>
+                <div>
+                  <input name="contrato" id={"pj"} value="PJ" type={"radio"} />
+                  <label>PJ</label>
+                </div>
+              </Contrato>
 
-          <h2>Formato</h2>
+              <h2>Formato</h2>
 
-          <Radio>
-            <div>
-              <input
-                name="office"
-                id={"homeoffice"}
-                value="HOMEOFFICE"
-                type={"radio"}
-                defaultChecked
-              />
-              <label>Home Office</label>
-            </div>
-            <div>
-              <input
-                name="office"
-                id={"presencial"}
-                value="PRESENCIAL"
-                type={"radio"}
-              />
-              <label>Presencial</label>
-            </div>
-            <div>
-              <input
-                name="office"
-                id={"hibrido"}
-                value="HIBRIDO"
-                type={"radio"}
-              />
-              <label>Híbrido</label>
-            </div>
-          </Radio>
+              <Radio>
+                <div>
+                  <input
+                    name="office"
+                    id={"homeoffice"}
+                    value="HOMEOFFICE"
+                    type={"radio"}
+                    defaultChecked
+                  />
+                  <label>Home Office</label>
+                </div>
+                <div>
+                  <input
+                    name="office"
+                    id={"presencial"}
+                    value="PRESENCIAL"
+                    type={"radio"}
+                  />
+                  <label>Presencial</label>
+                </div>
+                <div>
+                  <input
+                    name="office"
+                    id={"hibrido"}
+                    value="HIBRIDO"
+                    type={"radio"}
+                  />
+                  <label>Híbrido</label>
+                </div>
+              </Radio>
 
-          <h2>Deficiência</h2>
+              <h2>Deficiência</h2>
 
-          <Contrato>
-            <div>
-              <input name="deficiencia" id={"sim"} value="SIM" type={"radio"} />
-              <label>Sim</label>
-            </div>
-            <div>
-              <input
-                name="deficiencia"
-                id={"nao"}
-                value="NAO"
-                type={"radio"}
-                defaultChecked
-              />
-              <label>Não</label>
-            </div>
-          </Contrato>
+              <Contrato>
+                <div>
+                  <input
+                    name="deficiencia"
+                    id={"sim"}
+                    value="SIM"
+                    type={"radio"}
+                  />
+                  <label>Sim</label>
+                </div>
+                <div>
+                  <input
+                    name="deficiencia"
+                    id={"nao"}
+                    value="NAO"
+                    type={"radio"}
+                    defaultChecked
+                  />
+                  <label>Não</label>
+                </div>
+              </Contrato>
 
-          <h2>Habilidades</h2>
+              <h2>Habilidades</h2>
 
-          <Radio>
-            <div>
-              <input
-                name="habilidades"
-                id={"api"}
-                value="API"
-                type={"checkbox"}
-              />
-              <label>API</label>
-            </div>
-            <div>
-              <input
-                name="habilidades"
-                id={"css"}
-                value="CSS"
-                type={"checkbox"}
-              />
-              <label>CSS</label>
-            </div>
-            <div>
-              <input
-                name="habilidades"
-                id={"typescript"}
-                value="TYPESCRIPT"
-                type={"checkbox"}
-              />
-              <label>TypeScript</label>
-            </div>
-          </Radio>
-        </Caixa>
+              <Radio>
+                <div>
+                  <input
+                    name="habilidades"
+                    id={"api"}
+                    value="API"
+                    type={"checkbox"}
+                    defaultChecked={unquiVaga?.habilidades?.includes("API")}
+                  />
+                  <label>API</label>
+                </div>
+                <div>
+                  <input
+                    name="habilidades"
+                    id={"css"}
+                    value="CSS"
+                    type={"checkbox"}
+                  />
+                  <label>CSS</label>
+                </div>
+                <div>
+                  <input
+                    name="habilidades"
+                    id={"typescript"}
+                    value="TYPESCRIPT"
+                    type={"checkbox"}
+                  />
+                  <label>TypeScript</label>
+                </div>
+              </Radio>
+            </Caixa>
 
-        <button id={"login"} type="submit">
-          Cadastrar
-        </button>
-      </StyledForm>
-    </StyledLoginForm>
+            <button id={"login"} type="submit">
+              Cadastrar
+            </button>
+          </StyledForm>
+        </StyledLoginForm>
+      )}
+    </>
   );
 }

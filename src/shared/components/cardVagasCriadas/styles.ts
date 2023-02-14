@@ -67,7 +67,28 @@ export const OverCard = styled(Div)`
 export type lixoBoolean = {
   deleted: boolean;
 };
-export const LixoBoolean = styled.button<lixoBoolean>`
+
+export const Opcoes = styled.div<lixoBoolean>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 8%;
+
+  #edit {
+    :hover {
+      background: #8257e5;
+      color: #fff;
+    }
+  }
+
+  ${(props) =>
+    props.deleted &&
+    css`
+      display: none;
+    `}
+`;
+export const LixoBoolean = styled.button`
   display: flex;
   justify-content: center;
   background: none;
@@ -75,7 +96,6 @@ export const LixoBoolean = styled.button<lixoBoolean>`
   color: #a3a3a3;
   font-size: 20px;
   left: 87.5em;
-  width: 8%;
 
   border-radius: 4px;
   padding: 10px;
@@ -84,11 +104,6 @@ export const LixoBoolean = styled.button<lixoBoolean>`
     background: #c92c2c;
     color: #fff;
   }
-  ${(props) =>
-    props.deleted
-      && css`
-          display: none;
-        `}
 `;
 
 export const Secundario = styled(Div)`

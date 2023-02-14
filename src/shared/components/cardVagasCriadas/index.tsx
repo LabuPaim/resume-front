@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { BsTrash } from "react-icons/bs";
+import { AiFillEdit } from "react-icons/ai";
 import {
   Card,
   Habilidades,
@@ -12,13 +13,14 @@ import {
   Stackoffice,
   OverCard,
   LixoBoolean,
+  Opcoes,
 } from "./styles";
 import { DeleteVagasModal } from "../modal/deleteVagas";
 
 export function VagasCriadasList() {
+  const { userRequest } = useContext(AuthContext);
   const [onDeleteId, setOnDeleteId] = useState("");
   const [onDelete, setOnDelete] = useState(false);
-  const { userRequest } = useContext(AuthContext);
 
   const [isdelete, setIsdelete] = useState(false);
   const [isOpen, setOpen] = useState(false);
@@ -30,9 +32,10 @@ export function VagasCriadasList() {
 
   function onLixoDeleted(id: string) {
     setOnDeleteId(id);
-
     setOnDelete(!onDelete);
   }
+
+  const navigate = useNavigate();
 
   return (
     <Card>
@@ -81,12 +84,18 @@ export function VagasCriadasList() {
                 </h3>
               </Secundario>
             </MapCard>
-            {onDeleteId === vaga.id ? (
-              <LixoBoolean deleted={onDelete} onClick={() => setOpen(true)}>
-                <BsTrash></BsTrash>
-              </LixoBoolean>
-            ) : (
-              <LixoBoolean deleted={onDelete}></LixoBoolean>
+            {onDeleteId === vaga.id && (
+              <Opcoes deleted={onDelete}>
+                <LixoBoolean onClick={() => setOpen(true)}>
+                  <BsTrash></BsTrash>
+                </LixoBoolean>
+                <LixoBoolean
+                  id={"edit"}
+                  onClick={() => navigate("/criarvagas/" + vaga.id)}
+                >
+                  <AiFillEdit></AiFillEdit>
+                </LixoBoolean>
+              </Opcoes>
             )}
             {isOpen && (
               <DeleteVagasModal
