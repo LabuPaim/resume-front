@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const user =
       localStorage.getItem("user") &&
       JSON.parse(localStorage.getItem("user") as string);
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token" as string);
     if (user && token) setUserRequest({ token, user });
   }, []);
 
