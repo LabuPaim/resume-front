@@ -47,8 +47,8 @@ export function CriarVagasForm() {
       contratos: e.currentTarget.contrato.value,
       habilidades: arrayAbility,
     };
-
     userRequest?.user?.vaga.push(loginPayload);
+    localStorage.setItem("user", JSON.stringify(userRequest.user));
 
     const userData = await api.cadastrarVaga(loginPayload);
     if (!userData) {
@@ -269,7 +269,9 @@ export function CriarVagasForm() {
                     id={"typescript"}
                     value="TYPESCRIPT"
                     type={"checkbox"}
-                    defaultChecked={unquiVaga?.habilidades?.includes("TYPESCRIPT")}
+                    defaultChecked={unquiVaga?.habilidades?.includes(
+                      "TYPESCRIPT"
+                    )}
                   />
                   <label>TypeScript</label>
                 </div>
